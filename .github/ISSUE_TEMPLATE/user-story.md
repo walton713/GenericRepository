@@ -1,9 +1,9 @@
 ---
 name: User Story
 about: Describe a feature as a user
-title: ''
-labels: ''
-assignees: ''
+title: "[Insert] - Basic Object"
+labels: enhancement
+assignees: walton713
 
 ---
 
