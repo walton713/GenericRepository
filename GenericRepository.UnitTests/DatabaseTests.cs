@@ -6,15 +6,15 @@ namespace GenericRepository.UnitTests;
 
 public abstract class DatabaseTests : IDisposable
 {
-    private readonly SqliteConnection _connection;
+    protected readonly SqliteConnection Connection;
 
     protected readonly Faker Faker;
 
     protected DatabaseTests()
     {
         Faker = new Faker();
-        _connection = GetNewConnection();
-        _connection.Open();
+        Connection = GetNewConnection();
+        Connection.Open();
     }
 
     protected static TestDbContext GetTestDbContext(SqliteConnection connection)
@@ -26,7 +26,7 @@ public abstract class DatabaseTests : IDisposable
 
     protected static SqliteConnection GetNewConnection()
     {
-        var connection = new SqliteConnection("DataSource=Memory;Mode=Memory;Cache=Shared");
+        var connection = new SqliteConnection("DataSource=Memory;Mode=Memory;Cache=Shared;");
         connection.Open();
         return connection;
     }
@@ -38,6 +38,6 @@ public abstract class DatabaseTests : IDisposable
 
     public void Dispose()
     {
-        _connection.Dispose();
+        Connection.Dispose();
     }
 }
